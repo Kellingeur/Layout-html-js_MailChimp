@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MailChimp</title>
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link href="css/main.css" rel="stylesheet">
+        <script src="./js/main.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <aside class="main-menu">
+                <a class="main-menu__logo" href="#">
+                    <img src="./images/logo.png" alt="Logo"/>
+                </a>
+                <a class="main-menu__user" href="#">
+                    <img src="./images/user.png" alt="user-name"/>
+                </a>
+                <div class="main-menu__items">
+                    <a href="#" class="main-menu__item main-menu__item--dashboard fa fa-area-chart">
+                        <div class="main-menu__item-title">Dashboard</div>
+                    </a>
+                    <a href="#" class="main-menu__item main-menu__item--developer fa fa-code">
+                        <div class="main-menu__item-title">Developers</div>
+                    </a>
+                    <a href="#" class="main-menu__item main-menu__item--settings fa fa-cog">
+                        <div class="main-menu__item-title">Settings</div>
+                    </a>
+                    <a href="#" class="main-menu__item main-menu__item--errors fa fa-exclamation-circle">
+                        <div class="main-menu__item-title">Errors</div>
+                        <span class="main-menu__item--notifications">7</span>
+                    </a>
+                </div>
+                <a class="main-menu__item main-menu__item--logout fa fa-power-off" href="#"></a>
+            </aside>
+            <div class="container">
+                <nav>
+                    <span class="breadcrumbs">
+                        <a class="breadcrumb__item">New task</a>
+                        <span class="fa fa-chevron-right"></span>
+                        <span class="breadcrumb__item breadcrumb__item--currently">First task</span>
+                        <span class="fa fa-pencil"></span>
+                    </span>
+                    <button class="btn-run"><i class="fa fa-play"></i>Running</button>
+                    <div class="navigation-task">
+                        <a class="navigation-task__previous"><i class="fa fa-chevron-left"></i>Previous</a>
+                        <h2 class="navigation-task__title">Today at 06:28am</h2>
+                        <a class="navigation-task__next">Next<i class="fa fa-chevron-right"></i></a>
+                    </div>
+                </nav>
+                <section class="main-content">
+                    <div class="main-content__left-col">
+                        <div class="link-items">
+                            <div class="link-item link-item--amazon-app" onclick="linkItemTab(event, 'Amazon')" id="defaultOpen">
+                                <img class="link-item__icon" src="./images/link-amazon.png" alt="Amazon"/>
+                                <div class="link-item__title">Amazon App</div>
+                                <div class="link-item__additional-info">Get Data From Shop</div>
+                                <div class="link-item__path">elasticio/amazon</div>
+                                <div class="link-item__notifications link-item__notifications--edit fa fa-pencil"></div>
+                                <div class="link-item__notifications link-item__notifications--events">3</div>
+                            </div>
+                            <div class="link-item link-item--filter" onclick="linkItemTab(event, 'Filter')">
+                                <img class="link-item__icon" src="./images/link-filter.png" alt="Amazon"/>
+                                <div class="link-item__title">Filter</div>
+                                <div class="link-item__additional-info">Conditions for Data distribution</div>
+                                <div class="link-item__notifications link-item__notifications--edit fa fa-pencil"></div>
+                            </div>
+                            <div class="link-item link-item--mailchimp" onclick="linkItemTab(event, 'Mailchimp')">
+                                <img class="link-item__icon" src="./images/link-mailchimp.png" alt="Amazon"/>
+                                <div class="link-item__title">MailChimp</div>
+                                <div class="link-item__additional-info">Send emails</div>
+                                <div class="link-item__path">elasticio/mailchimp</div>
+                                <div class="link-item__notifications link-item__notifications--edit fa fa-pencil"></div>
+                                <div class="link-item__notifications link-item__notifications--events">3</div>
+                                <div class="link-item__notifications link-item__notifications--errors">2</div>
+                            </div>
+                            <div class="link-item link-item--webhook" onclick="linkItemTab(event, 'Webhook')">
+                                <img class="link-item__icon" src="./images/link-webhook.png" alt="Amazon"/>
+                                <div class="link-item__title">Webhook</div>
+                                <div class="link-item__additional-info">Get emails</div>
+                                <div class="link-item__path">elasticio/webhook</div>
+                                <div class="link-item__notifications link-item__notifications--edit fa fa-pencil"></div>
+                                <div class="link-item__notifications link-item__notifications--events">9</div>
+                                <div class="link-item__notifications link-item__notifications--errors">1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-content__right-col">
+                        <div class="link">
+                            <div class="link-info display-block" id="Amazon">
+                                <div class="link-info__icon">
+                                    <img src="./images/link-amazon.png" alt="Amazon"/>
+                                </div>
+                                <div class="link-info__info-block">
+                                    <div class="link-info__title">Amazon App</div>
+                                    <div class="link-info__additional-info">Get Data From Shop</div>
+                                </div>
+                                <div class="link-info__container">
+                                    <div class="link-info__tabs">
+                                        <div class="link-info__tab" onclick="linkViewTab(event, 'ErrorsAmazon')">
+                                            <div class="link-info__tab-title">Errors</div>
+                                            <div class="link-info__notifications link-info__notifications--events">3</div>
+                                        </div>
+                                        <div class="link-info__tab link-info__tab--active" onclick="linkViewTab(event, 'LogsAmazon')">
+                                            <div class="link-info__tab-title">Logs</div>
+                                        </div>
+                                    </div>
+                                    <div class="link-info__tab-content link-info__tab-content-errors" id="ErrorsAmazon">
+                                            <div>Errors</div>       
+                                    </div>
+                                    <div class="link-info__tab-content link-info__tab-content-logs display-block" id="LogsAmazon">
+                                        <div>[2017-04-19 18:33:06.951]: Starting application in apprunner</div>
+                                        <div>[2017-04-19 18:33:06.954]: Starting slug download ...</div>
+                                        <div>[2017-04-19 18:33:08.156]: Successfully downloaded and extracted slug file</div>
+                                        <div>[2017-04-19 18:33:08.157]: Writing config vars to .profile.d/config_vars</div>
+                                        <div>[2017-04-19 18:33:08.191]: Detected 256 MB available memory</div>
+                                        <div>[2017-04-19 18:33:08.192]: Detected 0.01 CPU available</div>
+                                        <div>[2017-04-19 18:33:08.196]: Starting the application with node ./node_modules/elasticio-sailor-nodejs/run.js</div>
+                                        <div>[2017-04-19 18:33:08.771]: Wed, 19 Apr 2017 15:33:08 GMT sailor:info Connected to AMQP</div>
+                                        <div>[2017-04-19 18:33:08.779]: Wed, 19 Apr 2017 15:33:08 GMT sailor:info Opened subscribe channel</div>
+                                        <div>[2017-04-19 18:33:08.789]: Wed, 19 Apr 2017 15:33:08 GMT sailor:info Opened publish channel</div>            
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="link-info" id="Filter">
+                                <div class="link-info__icon">
+                                    <img src="./images/link-filter.png" alt="Filter"/>
+                                </div>
+                                <div class="link-info__info-block">
+                                    <div class="link-info__title">Filter</div>
+                                    <div class="link-info__additional-info">Conditions for Data distribution</div>
+                                </div>
+                                <div class="link-info__container">
+                                    <div class="link-info__tabs">
+                                        <div class="link-info__tab" onclick="linkViewTab(event, 'ErrorsFilter')">
+                                            <div class="link-info__tab-title">Errors</div>
+                                            <div class="link-info__notifications link-info__notifications--events">3</div>
+                                        </div>
+                                        <div class="link-info__tab link-info__tab--active" onclick="linkViewTab(event, 'LogsFilter')">
+                                            <div class="link-info__tab-title">Logs</div>
+                                        </div>
+                                    </div>
+                                    <div class="link-info__tab-content link-info__tab-content-errors" id="ErrorsFilter">
+                                            <div>Errors</div>       
+                                    </div>
+                                    <div class="link-info__tab-content link-info__tab-content-logs display-block" id="LogsFilter">
+                                        <div>[2017-04-19 18:33:06.951]: Starting application in apprunner</div>
+                                        <div>[2017-04-19 18:33:06.954]: Starting slug download ...</div>
+                                        <div>[2017-04-19 18:33:08.156]: Successfully downloaded and extracted slug file</div>
+                                        <div>[2017-04-19 18:33:08.157]: Writing config vars to .profile.d/config_vars</div>
+                                        <div>[2017-04-19 18:33:08.191]: Detected 256 MB available memory</div>
+                                        <div>[2017-04-19 18:33:08.192]: Detected 0.01 CPU available</div>
+                                        <div>[2017-04-19 18:33:08.196]: Starting the application with node ./node_modules/elasticio-sailor-nodejs/run.js</div>
+                                        <div>[2017-04-19 18:33:08.771]: Wed, 19 Apr 2017 15:33:08 GMT sailor:info Connected to AMQP</div>
+                                        <div>[2017-04-19 18:33:08.779]: Wed, 19 Apr 2017 15:33:08 GMT sailor:info Opened subscribe channel</div>
+                                        <div>[2017-04-19 18:33:08.789]: Wed, 19 Apr 2017 15:33:08 GMT sailor:info Opened publish channel</div>            
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="link-info" id="Mailchimp">
+                                <div class="link-info__icon">
+                                    <img src="./images/link-mailchimp.png" alt="MailChimp"/>
+                                </div>
+                                <div class="link-info__info-block">
+                                    <div class="link-info__title">MailChimp</div>
+                                    <div class="link-info__additional-info">Send emails</div>
+                                </div>
+                                <div class="link-info__container">
+                                    <div class="link-info__tabs">
+                                        <div class="link-info__tab" onclick="linkViewTab(event, 'ErrorsMailchimp')">
+                                            <div class="link-info__tab-title">Errors</div>
+                                            <div class="link-info__notifications link-info__notifications--events">3</div>
+                                        </div>
+                                        <div class="link-info__tab link-info__tab--active" onclick="linkViewTab(event, 'LogsMailchimp')">
+                                            <div class="link-info__tab-title">Logs</div>
+                                        </div>
+                                    </div>
+                                    <div class="link-info__tab-content link-info__tab-content-errors" id="ErrorsMailchimp">
+                                            <div>Errors</div>       
+                                    </div>
+                                    <div class="link-info__tab-content link-info__tab-content-logs display-block" id="LogsMailchimp">
+                                        <div>[2017-04-19 18:33:06.951]: Starting application in apprunner</div>
+                                        <div>[2017-04-19 18:33:06.954]: Starting slug download ...</div>
+                                        <div>[2017-04-19 18:33:08.156]: Successfully downloaded and extracted slug file</div>
+                                        <div>[2017-04-19 18:33:08.157]: Writing config vars to .profile.d/config_vars</div>
+                                        <div>[2017-04-19 18:33:08.191]: Detected 256 MB available memory</div>
+                                        <div>[2017-04-19 18:33:08.192]: Detected 0.01 CPU available</div>
+                                        <div>[2017-04-19 18:33:08.196]: Starting the application with node ./node_modules/elasticio-sailor-nodejs/run.js</div>
+                                        <div>[2017-04-19 18:33:08.771]: Wed, 19 Apr 2017 15:33:08 GMT sailor:info Connected to AMQP</div>
+                                        <div>[2017-04-19 18:33:08.779]: Wed, 19 Apr 2017 15:33:08 GMT sailor:info Opened subscribe channel</div>
+                                        <div>[2017-04-19 18:33:08.789]: Wed, 19 Apr 2017 15:33:08 GMT sailor:info Opened publish channel</div>            
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="link-info" id="Webhook">
+                                <div class="link-info__icon">
+                                    <img src="./images/link-webhook.png" alt="Webhook"/>
+                                </div>
+                                <div class="link-info__info-block">
+                                    <div class="link-info__title">Webhook</div>
+                                    <div class="link-info__additional-info">Get emails</div>
+                                </div>
+                                <div class="link-info__container">
+                                    <div class="link-info__tabs">
+                                        <div class="link-info__tab" onclick="linkViewTab(event, 'ErrorsWebhook')">
+                                            <div class="link-info__tab-title">Errors</div>
+                                            <div class="link-info__notifications link-info__notifications--events">3</div>
+                                        </div>
+                                        <div class="link-info__tab link-info__tab--active" onclick="linkViewTab(event, 'LogsWebhook')">
+                                            <div class="link-info__tab-title">Logs</div>
+                                        </div>
+                                    </div>
+                                    <div class="link-info__tab-content link-info__tab-content-errors" id="ErrorsWebhook">
+                                            <div>Errors</div>       
+                                    </div>
+                                    <div class="link-info__tab-content link-info__tab-content-logs display-block" id="LogsWebhook">
+                                        <div>[2017-04-19 18:33:06.951]: Starting application in apprunner</div>
+                                        <div>[2017-04-19 18:33:06.954]: Starting slug download ...</div>
+                                        <div>[2017-04-19 18:33:08.156]: Successfully downloaded and extracted slug file</div>
+                                        <div>[2017-04-19 18:33:08.157]: Writing config vars to .profile.d/config_vars</div>
+                                        <div>[2017-04-19 18:33:08.191]: Detected 256 MB available memory</div>
+                                        <div>[2017-04-19 18:33:08.192]: Detected 0.01 CPU available</div>
+                                        <div>[2017-04-19 18:33:08.196]: Starting the application with node ./node_modules/elasticio-sailor-nodejs/run.js</div>
+                                        <div>[2017-04-19 18:33:08.771]: Wed, 19 Apr 2017 15:33:08 GMT sailor:info Connected to AMQP</div>
+                                        <div>[2017-04-19 18:33:08.779]: Wed, 19 Apr 2017 15:33:08 GMT sailor:info Opened subscribe channel</div>
+                                        <div>[2017-04-19 18:33:08.789]: Wed, 19 Apr 2017 15:33:08 GMT sailor:info Opened publish channel</div>            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>
